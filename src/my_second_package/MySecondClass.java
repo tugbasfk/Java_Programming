@@ -8,5 +8,7 @@ public class MySecondClass {
     //testing local update 4
     //testing local update 5
 
+    //git procedure
+    //1. git add. 2. git commit -m "message" 3. git push
 
 }
