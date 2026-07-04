@@ -1,0 +1,48 @@
+- Variable: named container for particular type of data used to hold a value.
+            has unique name, returns value whenever called
+            variable memorizes value for us
+            must be declared first
+            DataType variableName;
+            (int  quantity;)
+            Declaration (creation of variable): int quantity;
+                         double area;
+                         double pi;
+            Assignment (store value to variable): quantity = 3;
+                        area = 116.6
+                        pi = 3.14159...
+            Initialization: when value assigned to variable for the first time
+
+
+
+
+- Data Types: defines values a variable can hold
+               - Primitive Data Types: byte, short,int, long -> used for int values/whole nums
+                                       float, double -> floating nums such as 1.5 etc
+                                       char -> used for single character at a time
+                                       boolean -> true false expressions
+               - Non-Primitive Types: String, Array, Classes, Interface
+
+- Boolean data type: represents concepts of true or false :
+    -> boolean isMarreid = false;
+    -> boolean isDoorOpen = true; -> isDoorOpen = false
+-Char sata type: can only store single character at a time
+     -> ways to get single character: e.g. you want to print A
+     char ch1 = 'A'; (used most of the time)
+     char ch2 = 65; (decimal value of character)
+     char ch3 = 0x41; (hexadecimal value of character)
+     char ch4 = '\u0041'; (UTF-16(Unicode))
+
+
+- String: sequence of characters, using("") -> e.g. String greeting;
+                                                    greeting = "hello World!";
+                                                    String name = "Wooden Spoon";
+   -> concatenation: - action of linking two strings together to get enw string using the "+" operator
+                     - to make concatenation work we need to make sure there is a string on either left or right side
+                       e.g. String st1 = "...";
+                       String st2 = "...";
+                       String afterConcat = str1 + str2;
+                       sout(afterConcat);
+                       OR concat int
+                       int num = 5;
+                       sout ("The value is" +num);
+- constants: unchangable , value can only be assigned only one time and not be changed anymore

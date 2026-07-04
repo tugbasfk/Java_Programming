@@ -1,0 +1,104 @@
+methods: (function) that is a block of code performing a specific task,
+          runs only when it's called(invoked)
+          -> grouping a set of code fragment that can perform a specific task
+          why: code reusability
+               improved modularity
+               improved readability
+               easier to maintain
+
+two categories:
+                - standard library methods:
+                    - already build in java (main() etc.)
+
+                - user-defined methods:
+                   - created by yourself
+ -------------------------------------------------------------------------------------------
+
+Declaring a method:
+ access modifier            static modifier             return type             method name             method signature
+ public                         static                      void               displayMessage           displayMessage()
+                              Method body
+                                 sout
+
+
+=> method header:
+    -> public static void displayMessage(){
+       sout("Message"); //method body
+       }
+
+
+====>>
+        access modifier: determines visibility, public -> open to world and always accessible
+        static modifier: calls method through class name
+        return type: determines if method returns a value, void -> no value returned
+        parenthesis: can have parameters, always needs to be present
+
+-----------------------------------------------------------------------------------------------------------
+Calling a Method:
+            public cast void main(String[] args) {
+            eat()
+            }
+            public static void eat(){
+            sout("I am eating");
+            }
+            => when eat is called it will always print out I am eating
+            => this is what the function has been saved to the eat method
+-------------------------------------------------------------------------------------------------
+Hierarchical Method Calls: invocation of methods within other method/ nested manner
+            -> i can add a method into another and have them called one by one
+            -> if method play is created and walk is added to it, whenever play from main method
+            executes walk will do so too
+------------------------------------------------------------------------------------------------
+Parameters and Arguments:
+        - terms used to refer to values that are passed into a method
+        -> public static void displayValue (int num)<-parameter, if parameter there NEED to have argument
+            {sout("the value is " + num);}
+            public static void main (String[] args){
+            displayValue(5);} /*<-5 is argument*/
+
+        What to know on Parameters:
+        - parameters are variables declared in the method
+        - must have name and data type
+        - parameter  act as placeholder for argument when method is being called
+        -  methods can have 0 + parameters
+        What to know on Arguments:
+        - they are actual values passed into a method when invoking (calling) a method
+        - need to be in parenthesis
+        - can be values or variables (variables have values in them too)
+-----------------------------------------------------------------------------------------------------------------------
+pass-by value: - copy of the value of an argument is passed to a method, even when dealing with objects
+-----------------------------------------------------------------------------------------------------------------------
+Argument and Parameter Data type Compatibility:
+ - rules are same with assigning values to variables (e.g. can assignm byte to int , or int to byte)
+ - data type must match or be compatible for assignment to be valid(if parameter int you can pass int, byte, short
+                                                                    as argument but not double or float)
+  -> can pass narrower data type to wider one with implicit casting (short fits into int so implicit)
+  -> can pass wider data type to narrower one with explicit casting
+        (-> long cannot fit into int so it's not compatible
+         so I need to explicitly name it before variable,
+         e.g. long num3 =15; display(int)num3); =>explicit casting
+==> methods can have 0 + parameters
+==> num and order of arguments must match
+------------------------------------------------------------------------------------------------------------------------
+
+Return Value:
+=> a way to provide a result or an output from the method back to the code that called it
+
+
+           return type
+public static  int addNumbers(int num1, int, num2 ){
+       int sum = num1 + num2;
+       return sum; //resturns sum of nums }
+
+- method call will give me a data,
+    can be treated as value and can be stored into a variable if needed
+    method call can be passed on to print statement
+- whenever retun method is called a new data will be returned again
+
+
+==>> RULES:
+            - declare return type in method header to specify type of value that method will return
+            - use return keyword followed by value that we want returned
+            - if method has void return type, no value is returned
+            - after return statement , no code will be executed
+            - a method can have multiple return statements inside the conditional statement, but only one will eb executed

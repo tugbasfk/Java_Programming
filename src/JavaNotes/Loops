@@ -1,0 +1,82 @@
+Loops:
+        - repeated action
+        - Loops check conditions -> if condition is true, block of code will run
+                                 -> it repeats until the condition returns false
+        - 3 Types of Loops:
+          1. For Loops
+          2. While Loop
+          3. Do-While Loop
+--------------------------------------------------------------------------------------------
+For Loops:
+           - allows repeated execution of code block based on a certain number of iterations
+             -> Iteration: each execution of the loop body
+           - Syntax: for (initialization; boolean expression; iterator){
+                                ^                     ^             ^
+                                |                     |             |
+                        counter declaration         condition   updating counter to make cond false
+                     //statement
+                           ^
+                           |
+                     codes to repeat
+                     }
+           - Important Loops:
+            -> avoid infinite loops
+            -> multiple variables of same data type can be initialized & updated in control block
+            -> can re-assign variable in initialization block
+            -> variables initialized inside block cannot be accessed outside of block
+-----------------------------------------------------------------------------------------------------------------------
+Nested Loops:
+            - loop that is defined inside the body of another loop.
+            - this allows to perform repeated actions within the context of another repeated action
+                -> Sytax: //outer loop
+                           for (initialization1; condition1; iterator1){
+                           //inner loop
+                           for (initialization2; condition2; iterator2){
+                                //statements
+                                }
+                           }
+            - with each run of outer loop inner loop will run too until it becomes false
+------------------------------------------------------------------------------------------------------------------------
+While Loop: - repeatedly executes the same set of statements as long as condition is true.
+            -> condition is checked before each iteration of loop
+            - known as repeated single if statement:
+              ==> if condition true statement gets executed, then the condition is checked again ...
+                -> syntax: while (boolean expression){
+                //statement (code to repeat)
+                }
+-------------------------------------------------------------------------------------------------
+For vs. While:
+
+For                                                 While
+- initialization within expression             - initialization variable needs to be declared first
+   for (int i=0; ...){                            int num = 0;
+- condition right after initialization         - condition declared in expression
+    in expression                                 while (number < 5){sout};
+    for (in i=0; i<5;..){
+- if condition is true, statement will be executed  - if condition is true, statement will be executed
+  ->sout("HI");                                     ->sout("HI");
+- after execution of statement                       - iterator needs to be given after statement
+   iterator will be executed until statement false     in while loops body
+   for (in i=0; i<5;i++){                              first executes statement then iterator until false
+                                                       {sout("HI"); number ++; }
+===> requires initialization, condition, iterator      statement that needs to be repeated
+                                                       does not reqiure initialization and iterator
+------------------------------------------------------------------------------------------------------------------------
+Do - While Loop: - code block is executed first then condition is checked
+                 - Num of iteration unknown
+                 - executes once even if expression is false
+                 - only takes bool expressions
+                 -> syntax: do{//statement / code fregment to be repeated
+                            } while (boolean expression);
+-----------------------------------------------------------------------------------------------------------------------
+For vs Do -While vs While:
+- most of the time loops can be used interchangeably
+    -> for loop: if num of iterations fixed
+    -> while loop: num of iteration not fixed
+    -> do-while loop: num of iteration not fixed and you need to execute loop body at least once
+ -----------------------------------------------------------------------------------------------------------------------
+
+ - loops provide automation to repetitive tasks
+ - most of loops can be used interchangeably
+ - branching powerful for manipulating execution of flow and implementing specific logic
+

@@ -1,0 +1,114 @@
+Operators
+
+- operators: allow to write program that can perform computations
+             symbol or keyword that tells the compiler to perform a specific logical operation
+            -> arthmetic, unary, assignment, relationlal, logical operators
+            -> Three main categories:
+               1. unary operator: works with single operand +/- sign of nums
+               2. binary operator: works with two operands, arithmetic operator
+               3. ternary operator: works with three operands
+- operand: constant value or variable on which an operation is performed by an operator
+___
+ - arithmetic operators: +, -, /, *, % (11%3= 2)
+ - Precedence of arithmetic operators:
+   1. ()
+   2. * / % (left to right)
+   3. + , - (left to right)
+ Examples: 12 + 6 - 3 = 15
+           12 + 6 / 3 - 5 = 12 + 2 - 5 = 9 (6/3 comes first)
+           2 + (3*3) = 2 + ) = 11
+           (2 + 3) * 3 = 5 * 3 = 15
+
+--------------------------------------------------------------------------------------------------
+
+Addition vs Concatenation
+
+- num + num = addition
+- num + string / string + string = concatenation
+ Examples:
+ - sout(2+2); //4
+ - sout(2 + cydeo); //2cydeo
+ - sout("cydeo" + 2); //cydeo2
+ - sout ("cydeo" + "is the best"); // cydeo is the best
+-----------------------------------------------------------------------------------------------------------
+
+Mixed operations: involve multiple operators and operands of different types
+                    example: int x + int y + double z
+                    Rules: - when operation involves 2 different data types,
+                    the smaller is casted implicitly to the larger one
+                    byte , short -> int
+                    e.g. int x + long y -> returns long
+                    long x * float y -> returns float cause float larger than long
+                    float x / double y -> returns double
+
+----------------------------------------------------------------------------------------------------------------------
+Assignment operator: assigns values from right side operands to left side operand
+                    - cost = items * 10;
+                      -> cost = variable operand
+                      -> = assignment operator
+                      -> items * 10 -> expression
+-------------------------------------------------------------------------------------------------------------------
+
+Shorthand Operators: combination of operators
+                    -> x = x + y --> x += y
+                    ->Precedence:
+                        1. ()
+                        2. * / %
+                        3. + -
+                        4. = += -= *= /= %=
+
+--------------------------------------------------------------------------------------------------------------------
+Unary Operators : can be used with only one operand
+                   -> + : unary plus operator (indicates pos value)
+                   -> ++: increment operator (increments value by one)
+                   -> - : unary minus operator (indicates neg value)
+                   -> --: decement operator (decrements value by one)
+Pre-Increment / Pre-Decrement:
+-> Increase or decrease then give me the number
+Post-Increment / Post-decrement:
+-> Give me the number then increase or decrease
+
+Precedence:
+1. ()
+2. ++ -- (post - decrement /-increment)
+3. (Unary) ++ -- + - ! (pre - decrement /- increment)
+4. * / %
+5. (arithmetic) + -
+6. = += -= *= /= %=
+-----------------------------------------------------------------------------------------------------------------
+Relational operators: compare the operands and return boolean value
+Operators:
+- > >= < <= == !=
+Precedence:
+1. ()
+2. ++ -- (post - decrement /-increment)
+3. (Unary) ++ -- + - ! (pre - decrement /- increment)
+4. * / %
+5. (arithmetic) + -
+6. > >= < <=
+7. == !=
+8. = += -= *= /= %=
+---------------------------------------------------------------------------------------------------
+
+Logical and Bitwise Operators:
+&& : Logical AND (used in conditional statements for short circuit)
+&  : Bitwise AND operator (always operates both operands before returning)
+==>
+Expression 1    Expression 2       Description
+false           false               false
+false           true                false
+true            false               false
+true            true                true
+
+|| : Logical OR (used in conditional statements for short circuit)
+|  : Bitwise OR operator (always operates both operands before returning)
+==>
+Expression 1    Expression 2       Description
+false              false            false
+false              true             true
+true               false            true
+true                true            true
+
+!  : NOT
+
+

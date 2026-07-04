@@ -1,0 +1,17 @@
+Identifier and naming conventions
+
+- identifiers: symbolic names used for identification (identifing package, class, method, variable names)
+                -> first character must be aA-zZ and always only be letter
+                -> _ or $ only special characters allowed
+                -> digits allowed as long as not in beginning
+                -> no whitespace or reserved words can be used
+                    -> reserved words: abstract, byte, int, false, true, const, private, static etc.
+
+- naming conventions: rule to follow when naming identifiers (class, package, var, const etc.)
+                       -> variables: firstName (low upper)
+                       -> constant: TAX_RETURN (all upper)
+                       -> classes: HelloWorld (upper upper)
+                       -> packages: my_first_program (lower underscore)
+                       -> methods: getColor() (low upper)
+                       -> interfaces: Printable (adjective)
+----------------------------------------------------------------------------------------------------------

@@ -1,0 +1,70 @@
+/* Discourse:
+Selections Statements: for desicion making
+Looping Statements: repetitions , code fragments that are to be repeated un/-known num of times
+*/
+
+Branching Statements:
+- used for branchings
+- 3 branching statements:
+    1. break:
+        - used to terminate execution of a loop or switch and to continue to next statement
+            while (condition){statem1; statem2; break; statem3; statem4;}statem5;
+            ==>break statement jumps out of loop -> stops after statem2 and continues with statem5
+
+    2. continue:
+        - used to skip remaining code inside a loop iteration and move to next iteration
+          -> jumps to next iteration of loop , remaining iteration of loop will not be executed
+          for(initialization; condition; iterator){
+          st1;
+          st2;
+          continue;
+          st3;
+          st4;
+          }
+          st5;
+          ==> st3 & st4 will be skipped for specific iteration, but next iteration they will be executed
+
+
+    3. return:
+        - exits a method and can return a value
+        example:
+        main{
+        st1;
+        st2;
+        return;
+        st3;
+        st4;
+      }
+      -> current method will be terminated
+      example 2:
+       main{
+       do{
+              st1;
+              st2;
+              return;
+              st3;
+              st4;
+            } while (condition);
+            st5;
+            }
+    -> inside loop also terminates method
+    -> next code fragments in codes body will never be executed
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+    - labeled statements: provide way to referred and identify specific statement within nested loop
+    Example:
+    label1:
+    for (initialization; condition; iterator){
+        st1;
+        for(initialization; condition; iterator){
+        st2;
+        break label1; //which loops iteration will be effected by break keyword
+        st3;
+        }
+        st4;
+        }

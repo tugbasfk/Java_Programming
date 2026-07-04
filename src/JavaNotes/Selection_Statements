@@ -1,0 +1,78 @@
+Selection Statements: one of three control flow statements ,
+                       known as tools essential for determining order and condition in which code
+                       is executed.
+                       used for: decision making, repetition, branching
+
+ If Statements: making decision based on specific criteria, conditional control statements
+                - Single-If: one possible output (checks a condition/ boolean expression)
+                   -> if(condition) {//statement}
+                - if .... else: 2 possible outputs (checks 2 conditions and either one will be executed)
+                    -> if (condition){//statements
+                        }else {
+                        //statement
+                        }
+                   ==> condition true if block executed
+                - Multi Branch If: 3+ several outputs
+                    -> else if clauses
+                    -> if (condition){//statement
+                    }else if (condition){
+                    }esle{
+                    //statement
+                    }
+                - Nested If: pre conditions for any possible output
+                    -> one if statement declared in another one
+                    -> whenever one if condition needs to depend on another
+                    -> any outer and inner inner if
+                - if (condition){
+                    if (condition){
+                        statement
+                        }else if (condition){
+                        statement
+                        }else {
+                        statement
+                        }
+                       }
+ -----------------------------------------------------------------------------------------------------------------------
+
+ Switch Statements: - executes statement based on value of variable
+                    - executes only one statement from multiple conditions
+                    - no boolean expressions only : byte, short, int, ca´har, String, enum
+                    - only literals and constants (final values), no variables
+                    - value has to be unique
+                    - no curly braces for blocks
+                    - exiting switch case by using break keyword
+
+                   switch (expression){
+                   case constant1:
+                    statement 1;
+                    statement 2;
+                    ...
+                    break;
+                   case constant1:
+                    statement 1;
+                    statement 2;
+                    ...
+                    break;
+                   defualt:
+                    statement 1;
+                    statement 2;
+                    ...
+                    break;
+                    }
+------------------------------------------------------------------------------------------------------------------------
+IF vs SWITCH
+
+if-else                                         switch
+- multiple expressions for multip choices       - single expression for multip choices
+- boolean expressions                           - checks for fixed data values (equallity)
+- slower                                        - faster when num of if statem is large
+- complex and hard to read                      - more concise and readable
+------------------------------------------------------------------------------------------------------------------------
+Ternary operator: simplified if statement (shorthand if-else)
+                   returns 1 of 2+ values
+                   -> (condition)       ?           expression1             :           expression2
+                  Ternary condition   if keyword    return value if block   else keyword    return value else block
+                   ==> if expression1 is true it will be executed
+                   ==> if expression1 is false expression2 will be returned
+                   =====>> ? & : must have equal num
+

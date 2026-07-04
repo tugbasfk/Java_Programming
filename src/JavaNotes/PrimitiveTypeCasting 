@@ -1,0 +1,10 @@
+Primitive Type Casting
+
+
+Primitive Type Casting: process of converting the value of one primitive data type to another compatible primitive data type
+Implicit casting: smaller primitive types to larger primitive types
+                   implicit done by compiler (automatic conversion)
+Explicit Casting: casting larger primitive types to smaller primitive types
+                    risk of loosing data
+                    must be done explicitly (by programmer)
+
