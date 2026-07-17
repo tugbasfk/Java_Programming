@@ -1,0 +1,163 @@
+What is a class?
+- Non-primitive data type (like string)
+- classes divided into two:
+    -> built-in classes:                                    ->custom classes:
+       already defined in the Java standard library           created by developers based on needs
+       also known as pre-defined/standard classes
+        ->string, scanner, math
+
+- classes specify state & behavior of objects
+- class is a blueprint (template) of whichever object it is created from
+- when creating classes separated into
+    -> field (state): set of values stored in an object
+    -> Method (behaviour):set of action objects can perform
+
+What does Object mean:
+- entity that has state and behaviour of class
+- instance of class (also an name for it)
+
+   -> Field is a set of values stored in an object
+   -> Method is a set of action an object can perform
+
+   - once class is created , by adding fields and methods, you can create multiple objects from it
+   - instances of class can be  created  if you want to create methods and classes
+        you need to create an object, instances of classes need to be created
+
+   EXAMPLE:
+   public class Teacher {                   => Class Header
+
+   public String name;
+   public int age;
+   public String email;                     => Fields
+   public String branch;
+   public boolean isManager;
+
+   public void teachSubject(){
+    sout("teaching...");
+    }
+   public void practicingSubject(){
+    sout("practicing subject...");
+    }
+   public void teachSubject(){              => Methods
+    sout("teaching...");
+    }
+   public void solveQuestions(){
+    sout("solving questions...");
+    }
+    public void give homework(){
+    sout("giving homework...");
+    }
+-------------------------------------------------------------------------------------------------------------
+   Instance Variables And Methods
+
+   - fields and methods that belong to any instances of a class are called
+     instance variables and instance methods
+     -> Instance Variables:
+        - declared inside the class and outside any method/ block
+        - belong to the object , and each object has its own memory
+        - each object has a separate copy of the instance variable
+
+     -> Instance Methods:
+        (methods learned so far are called static methods)
+        - do not have static keyword
+        - belong to the object
+        - each object has a separate copy of the instance methods
+        - by making methods instance , I will be able to call those methods separately from each object
+          then action will be performed that specific object
+          -> which object gets to be run first depends on from which object you're calling this method from
+---------------------------------------------------------------------------------------------------------------------------------
+
+How to Create an Object:
+
+- Object is an entity that has a state and behaviour. It is also called instance.
+
+
+1. create reference variable
+
+Teacher teacher = new Teacher();
+    ^      ^    ^   ^   ^
+    |      |    |   |   constructor -> special type of method , every class must have it , same as class name
+class name |  to assign object to ref var name
+        Object reference variable name
+        //to make sure object is reusable
+                    |
+                    |
+                "new" keyword indicates new object will be created
+
+
+ Client Code
+ - when creating objects from custom class , they're called Client Code
+ -> code that interact with a class or objects of that class
+
+ ----------------------------------------------------------------------------------------------------------------
+ Dot (".") operator
+
+ - once object is created, thorough object reference name you are able to access to the field and methods
+   of object
+   -> need to use "." to access them
+ 1. call object reference variable.instance variable
+ Example:
+ Teacher teacher =  new Teacher();
+
+ return methods:
+ - can be passed within print statements
+ sout(teacher.name);
+ sout(teacher.age);
+...
+==>>variables (name, age..) of teacher object are called and these values will be returned
+==>> if variables have not been set yet, default values will be returned
+
+void methods:
+- must be called outside of print statement
+teacher.teachSubject();
+teacher.solveQuestions();
+
+==>> methods of teacher object are being called , they are gonna perform a specific action
+
+--------------------------------------------------------------------------------------------------------------------------
+Difference between class and objects:
+
+- Class: where all objects come from
+  - template for creating objects
+  - states and behaviours created there are what objects will have
+  - every single object you are creating from the class are known instances of that class
+
+
+  Class                                             Object
+  - blueprint from which objects is created         - is an instance of class
+  - is a template(conceptual)                       - is real
+  - no memory is allocated                          - each object occupies own space in memory
+  - can exist without any objects                   - cannot exist without a class
+  - no values associated with the field             - every object has own value associated with the field
+  -----------------------------------------------------------------------------------------------------------
+
+  Memory Management
+  - process of allocation and de-allocation of objects
+    - Java has automatic memory management system which is divided inti two parts
+        -> JVM Memory Structure & Garbage collection
+
+Memory: space that stores values, instructions, or data.
+
+Memory Structure:
+2 Memory types:
+ - stack: Methods, local variables (variables within a method body)
+ - Heap: Instances (Objects), Instances Variables(primitive or reference)
+                    ^
+                    |
+          whenever "new" keyword is used
+
+STACK:
+- holds local variables until method lasts -> once execution of method is completed it will be cleared from stack
+- last-in-first-out process -> created first main then another method, last method to be creates will be cleared first
+- grows / shrinks as any new method is called and terminated
+- has auto-allocation an de-allocation feature -> no need to do anything for method or local variable to be cleared
+- full memory -> stackoverflowerror
+- faster in access when compared to Heap
+
+HEAP:
+- comes in everytime when object is created -> "new" keyword creates new memory will be opened and dedicated to that object
+- uses "garbage collector" to remove objects tha have no reference -> eventually object will be cleared to make space
+- when full -> outofmemoryerror
+- slower that stack -> heap processes objects slower than stack does methods and local variables
+
+-----------------------------------------------------------------------------------------------------------------

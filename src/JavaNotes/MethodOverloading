@@ -1,0 +1,35 @@
+Method Overloading:
+
+- feature that allows a class to have multiple methods with the same name
+  but different parameters , can overload a method as may times as you want
+  (can have as many methods with the same name in a class)
+   But make sure that:
+   - different data types
+   - different numbers of parameters
+   - different order of parameters
+   Advantages:
+   - easier to remember one name than multiple when they have the same usability
+   - code reusability
+   - easier to maintain (can just go to methods body and make changes there)
+   => Arguments you pass determine which one gets to execute first
+
+   Examples:
+   different number of parameters
+   public static void displayValues(int a){...}
+   public static void displayValues(double a){...}
+   public static void displayValues(int a, int b){...}
+
+   different order of parameters
+   public static void displayValues(int a, double b){...}
+   public static void displayValues(double a, int b){...}
+
+   Ambiguous Method Call:
+   - public static void calculateValues(int num1, double num2){...}
+        sout(...);
+   - public static void calculateValues(double num1, int num2){...}
+        sout(...);
+
+   ==>> if I call in my main method calculateValues(10, 10)
+   ==>> I will get an error since 10, 10 could be int num1 and double num1 as well as
+        int num2 and double num2 in either method
+

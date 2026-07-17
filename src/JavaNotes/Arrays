@@ -1,0 +1,239 @@
+Arrays:
+- non - primitive data type
+ -> data types determine what kind of data types can be stored into a variable
+- fundamental data structure that allows to store multiple elements of the same data type
+    -> it allows efficient access and manipulation of the data
+    -> support primitive and non-primitive data types (objects)
+    -> has unique index num for each element
+
+Why use Arrays/ Why store multiple values into one variable
+- one variable for multiple data
+- Array helps group related data items together (list of names, list od scores etc.)
+    -> allows fast and direct access to indiv elements based on their index
+    -> allows to process each element easily with the help of loos
+    -> offers efficient algorithm implementations for searching , sorting, and counting
+
+Memory allocation of Arrays
+- when array is created , a memory is allocated for its elements in a contiguous block in Heap.
+- size of the block is determined by num of elements in the array and the size of each element
+- memory allocation of primitive and non-primitive data types is different
+
+Memory Allocation of Primitive data type Arrays
+    -> Array stores actual values directly in the memory locations reserved for each array element
+    -> each element occupies a fixed amount of memory determined by the size of data type
+    -> e.g. int array of size 5 will allocate 20 bytes of memory
+
+Memory Allocation of Non-Primitive data type Arrays
+    -> memory is required for the object references and for the objects themselves:
+        -> each element hold a reference to the actual object, and these references are stored in contiguous blocks
+        -> actual objects are allocated in separated memory location
+
+  ==>> primitive memory allocation: fixed amount of memory (objects' size depends ond JVM & OS version)
+------------------------------------------------------------------------------------------------------------------------
+declaring arrays:
+    Recommended:           Not recommended
+- int [] numbers;       OR int numbers [];          OR      int[] number, codes, scores;
+- String [] name;          String names [];                 int numbers[], codes, scores
+- Student[] students;      String students [];              int numbers[], codes[], scores[]
+
+Instantiating Arrays
+- declare and instantiate in separate statement:
+    -> int[] scores;
+    scores = new int[4]; //4 array size
+
+- declare and instantiate in single statement:
+    -> int[] scores = new int [4];
+
+==>> once array is created, its size cannot be changed
+-----------------------------------------------------------------------------------------------------------------------
+Accessing Array Elements:
+-  elements of an array can be accessed by using [] and index
+- index num needs to be provided within []
+- arrays use zero-based indexing
+-----------------------------------------------------------------------------------------------------------------------
+Assigning values to array elements:
+
+- numbers [0] = 20; <- element value
+      ^    ^
+      |    |
+ reference variable
+           |
+      element index num
+
+==>> updating first element of array: has index num 0
+                                      -> from array variable call index 0 & then assign element value
+-----------------------------------------------------------------------------------------------------------------------
+reading values from array elements:
+
+ numbers: 20, 0, 0, 30, 0, 0
+- sout(numbers[0]); //20
+- sout(numbers[1]); //0
+- sout(numbers[2]); //0
+- sout(numbers[3]); //30
+- sout(numbers[4]); //0
+- sout(numbers[5]); //0
+-----------------------------------------------------------------------------------------------------------------------
+
+Array Initializer
+- Java allows to initialize an array's element while creating
+- curly braces initialization: combines the declaration, creation, and initialization of an array in one statement
+
+-> String [] names = {"Java", "Python", "C#", "C++"};
+-> int [] numbers = {10, 20, 30, 40, 50, 100, 200};
+
+==>> declaration and initialization cannot be separated
+int [] numbers2;
+numbers2 = {88, 99}; ==>>compile error
+
+-----------------------------------------------------------------------------------------------------------------------
+
+length of array
+- the array uses the length property to store the urrent number of elements it holds
+Example:
+String [] mountains = {"Everest" , "Fuji", "Nanga Parbat"};
+sout(mountains.length); //returns 3
+int [] numbers = {10, 20, 30, 200, 60};
+sout(numbers.length); //returns 5
+-----------------------------------------------------------------------------------------------------------------------
+processing array with loops
+- when processing array elements, we use for loop
+-> whenever iteration is fixed and known in advance
+example:
+
+int[] num = {1,2,3,4,5,6};
+for (int i = 0; i < numbers.length; i++){
+sout("number = " + num[i]);
+-----------------------------------------------------------------------------------------------------------------------
+
+length field vs length() method
+
+String length()                                 Array's length property
+- primarily used by String class                used by arrays
+- stringvariable.length()                       arrayVariable.length()
+- retunrs num of characters in String           returns size or length of an array
+- length cannot be resolved in compile error    cannot invoke length() on an array -> compile error
+-----------------------------------------------------------------------------------------------------------------------
+Utility class:
+- specialty type of class that contains only static methods(can call class through its name)
+   and no instance variable
+    -> main purpose: provide a set of useful and commonly used functions
+                     that can be easily accessed and reused
+    ->make code more readable and maintainable
+    ->have built-in utility classes such as Arrays Math etc
+    -> can create custom utility class
+-----------------------------------------------------------------------------------------------------------------------
+Arrays utility class methods
+
+- toString(arrVar): returns string representation of content of Arrays
+- equals(arrVar1, arrVar2):returns boolean, checks if Arrays are equal or not
+- sort (arrVar): sorts the elements of Arrays in ascending order
+- binarySearch (arrVar): searches for specific element in Array with help of binary search algor.
+                        Array must be sorted in ascending order
+- copyOf(arrVar, length): copies specific Array and returns new array
+- copyOfRange(arrVar, from, to): returns new Array, copies specific range of specified Array
+- fill(arrVar, value): assigns specified value to each element of specified Array.
+- deepToString(arrVar): returns a string representation of multi-dimensional array
+- asList(arrVar): returns fixed-size list backed by specified arrays
+-----------------------------------------------------------------------------------------------------------------------
+For-Each Loop (Enhanced For Loop)
+- designed to simplify the process of iterating over elements in a collection or an array
+    -> iteration order and the number of iterations are fixed
+    -> does not have index num => if you just want to access and not update data
+- fastest way to access each elements of data structure
+    ->pre condition: there must be a data structure (Array, Collection, Map)
+        -> if you have an array and want to get elements of array more easily and faster
+EXAMPLE:
+int[] numbers = {3, 6, 9, 12, 15, 18, 21};
+for(int val : numbers){
+      ^   ^      ^
+      |   |      |
+ element data type
+          |      |
+       element name
+                 |
+          array reference number
+
+sout(val); }
+-----------------------------------------------------------------------------------------------------------------------
+For-Each vs For Loop
+
+For-Each Loop                                           For Loop
+- access all array elements 1 to last                   access some array elements using index
+- works from 1 to last, no reversed flow                can work in reversed order through array elements
+- index cannot be used                                  index must be used
+- works with only one array                             simultaneously works with 2+ arrays
+- elements cannot be modified                           elements can be modified
+-----------------------------------------------------------------------------------------------------------------------
+Key takeaways
+- array is a fundamental data structure that allows to store multiple elements of same data type
+- array support primitive and non-primitive data types
+- array size cannot be changed after it was created
+- arrays utility class has handy methods for manipulating and comparing arrays
+- for-each loop can be used to iterate over collection classes or arrays
+-----------------------------------------------------------------------------------------------------------------------
+
+Reference Types vs Primitive Types
+- reference types and primitive types are two different kinds of data types in progr. lang.
+    -> they represent different ways of storing and accessing data in memory
+
+Primitive Data Types:
+- store actual value of data
+- local primitives are stored on the stack
+- have fixed sizes
+- when assigned to another variable or passed as an argument, a copy of its value is created
+- value directly accessible and modifiable
+
+Reference Data Types:
+- store the memory address (reference) of data
+- stored on the Heap, references stored on the stack
+- have flexible sizes
+- when reference type assigned to another variable / passed as argument,
+  only reference(memory address) is copied, not actual data
+- value accessed indirectly through the reference, and modifications made to actual data on heap
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Pass-by-Value vs Pass-by-Reference
+
+- when a parameter is passed by reference,
+  caller(function calling other functions) & callee(function called by another function)
+  use same variable for parameter. If callee modifies parameter variable,
+  effect is visible to caller's variable
+- when a parameter is passed by value, the caller & callee have two independent variables with the same value
+  If the callee modifies the parameter variable, the effect is not visible to the caller
+
+  => Java is pass-by-value
+-----------------------------------------------------------------------------------------------------------------------
+Passing Arrays to Methods
+
+- to apss an array to a method as an argument, specify the name of the array without any brackets
+e.g.
+int[] numbers = new int [6];
+String [] student = new String [10];
+getAverage(numbers);
+//method header has array parameter, meaning whnever method is called I need to provide an array
+//data type of array needs to match data type of parameter of method
+getAverage(students);
+
+EXAMPLE:
+//pass array to showArray method
+showArray(numbers)
+public static void showArray(int[] array){
+for (int value : array){
+sout(value);
+}
+-----------------------------------------------------------------------------------------------------------------------
+Returning arrays from Methods
+- returning array must have same data type as the method return type
+  -> public static double[] getArray(){
+                       ^
+                       |
+               method return type
+     double[] arrayOfDoubles = {20.0, 0.2, 7.4, 30.0}
+        ^
+        |
+        Array return type
+     return arrayOfDoubles; <- returning Array's memory address
+     => when a method returns an array, the reference of the array is returned
+
+

@@ -1,0 +1,301 @@
+String:
+- is a non-primitive data type: making String as data type of variable , can store string of text into variable
+- is a class providing immutable (not modifiable) representation of sequence characters (everything in string is character)
+- based on Unicode character set
+- String class is included in java.lang package(no need to import)
+    EXKURS:
+    ->import statement placed above class header , under package information
+    -> import statement used to import class that is from different package
+- Two ways to create String object:
+    -> String literal
+    -> new keyword
+------------------------------------------------------------------------------------------------------------------------
+String Literals:
+- String object can be created by using double quote ("")
+   e.g. String str = "Hello World";
+- String literals are special type of objects -> JVM keeps String literals in the String pool
+                                                 => a special memory location for all String literals
+                                                    saved in Heap
+------------------------------------------------------------------------------------------------------------------------
+String Pool:
+- special memory are in the Heap that stores unique instances of string literals
+    -> if we have multiple duplicated String literals in class, only one String literal will be saved in the String pool
+        and that String literal in the String pool will be represented by those variables tha are sharing the same
+        String of text.
+        e.g.
+        void method(){
+            String str1 = "Java";
+            String str2 = "Java";
+        }
+        ==>> "Java" assigned to both str1, str2, so both are String literals now.
+            if you have 2+ String literals with the exact same name and order
+            when they are allocated in teh Heap, they will be saved in the String pool because they are String literals.
+            String literals do not accept duplicates -> only one will be located in String pool and will be referenced
+            by String variables str1, str2. ==>>basically, str1 & str2 are referencing the sae object
+    -> String object inside the String pool are also subject to garbage collection when they are no longer referenced
+----------------
+String Object with "new" Keyword
+-when creating String object using the "new" keyword the way objects are stored
+    is the same as regular String objects are created
+    -> each usage of the "new" keyword creates a new object in Heap
+    - e.g.
+    void method(){
+                String str3 = new String ("Java");
+                String str4 = new String ("Java");
+            }
+------------------------------------------------------------------------------------------------------------------------
+String Immutability:
+- String objects are immutable: (makes it faster to access object)
+    -> when a String method is called it cannot be modified
+    -> any operation, such as concatenation or substring,  actually creates a new String Object
+- String class's im,mutability allows String pool's existence
+--------------------------------------------------------------------------------------------------------------------
+Frequently used Methods:
+equals()                length()            replace()           startWith()
+equalIsIgnoreCase()     charAt()            replaceAll()        endsWith()
+concat()                indexOf()           replaceFirst()      isEmpty()
+toLowerCase()           lastIndexOf()       trim()              isBlank()
+toUpperCase()           substring()         contains()
+---------------------------------------------------------------------------------------------------------------------
+equals() vs "=="
+- equals() method: returns "true" if string characters and their orders are the same,
+                   and "false" when otherwise
+- "==" operator: check whether two string variable refer to the same object,
+                 but cannot tell  whether they have the same contents.
+
+==>> String str1 = "Hello";
+     String str2 = new String("Hello");
+     sout(str1.equals(str2));
+    //returns true since content is the exact same
+
+     sout(s1==s2);
+     //returns false since it only checks if if strings reffer to the same object
+    ==>> better to use equals() unless we check if string is "null" or not.
+------------------------------------------------------------------------------------------------------------------------
+equals() vs equalsIgnoreCase():
+
+- equals(): returns "true" if string characters and their orders are the same,
+            and "false" when otherwise (case sensitive)
+- equalsIgnoreCase(): returns "true" if string characters and their orders are the same,
+                      and "false" when otherwise
+  EXAMPLE:
+  String str1 ="Hello";
+  String str2 ="hello";
+  sout(str1.equals(str2)); => false since one String is uppercase and the other isn't
+  sout(str1.equalsIgnoreCase(str2)); => true since it disregards lower / - uppercase
+-----------------------------------------------------------------------------------------------------------------------
+concat() vs "+"
+- concat(): only concatenates two strings and returns new String object
+- "+" operator: concatenates a string with any type
+EXAMPLE :
+int num = 5;
+char ch = 'a';
+String str1 = "Hello";
+String str2 = "World";
+
+String str3 = str1.concat(str2);
+sout(str3); => HelloWorld
+// sout(str1.concat(int)); => compiler error since you only can concat strings with this method
+sout(str1 + num); ==>> prints: Hello5
+
+==>>value of str is immutable , so if you want to change it you have to reassign it
+    -> meaning object in Heap is created and cannot be changed
+------------------------------------------------------------------------------------------------------------------------
+toLowerCase(): returns a new String with all the characters converted to lowercase
+toUpperCase(): returns a new String with all the characters converted to uppercase
+==>> cannot modify already existing String ==> Always immutable
+EXAMPLE:
+String str = "Hello, World!";
+String lowerCaseStr = str.toLowerCase();
+sout(lowerCaseStr); => returns: hello, world!
+OR
+sout(upperCaseStr) =>returns: HELLO,WORLD!
+----------------------------------------------------------------------------------------------------------------------
+charAt : gives you letter of index number selected
+length(): returns total number of letters with space
+-----------------------------------------------------------------------------------------------------------------------
+indexOf() & lastIndexOf()
+- indexOf(String str): returns first occurrence of the specific substring
+Example:
+String str ="Hello World";
+sout(str.indexOf("World")); => returns 6, because W of World starts at index 6.
+OR
+sout(str.indexOf("o")); => 4 (from hello) because it will give me the first o it encounters
+- indexOf(String str, int): searches for occurrence of the substring starting from specific position
+                            returns index of the first occurrence of substring.
+                            -> int determines position of first string you want the index from
+Example:
+String str ="Hello World";
+sout(str.indexOf("o", 5)); =>returns 7, because it start looking for o after index num 5
+
+
+- lastIndexOf(String str); returns index of last occurrence of specific substring
+Example:
+String str ="Hello World";
+sout(str.lastIndexOf("l")); => returns 9, because this method looks for the last character that was entered ()
+
+  ==> -1 in return means the search for substring is not found
+----------------------------------------------------------------------------------------------------------------------
+Substring():
+
+- substring (int beginIndex):
+    -> creates a new string that is substring of the original String
+    -> starts from beginIndex position to the end of string
+- substring (int beginIndex, int endIndex):
+    -> creates a new string that is substring of the original String
+    -> starts from beginIndex position and ending at endIndex -1(ndIndex not included)
+    (e.g. if substring with index until 10 is created only index til 9 will be returned)
+
+EXAMPLE:
+String sentence = "I Love Java Programming!";
+String languageName1 = sentence.string(7);
+sout(languageName1);
+=>Output: Java Programming (each gap has its own index)
+
+If I only want a specific part :
+String sentence = "I Love Java Programming!";
+String languageName2 = sentence.string(7, 11);
+sout(languageName2);
+=>Output: Java
+
+*sout(sentence) => I Love Java Programming!
+
+if index num unknown :
+
+->indexOf(): retunrs index num of first occurrence of specified string
+e.g.:  String str = "WoodenSpoon";
+       str.substring(0, str.indexOg(" ")); //gives me first space's index
+       //substring starting from index 0 to " " will be given excluding " ".
+------------------------------------------------------------------------------------------------------------------------
+replace()
+
+- replace(charSequence target, charSequence replacement):
+    ->replaces all occurrences of a specific substring with another substring
+    and returns a new string with replacement
+- replaceAll(String regex, String replacement):
+    ->replaces all occurrences of a regular expression pattern with a specified replacement String
+    and returns new replacement string
+
+    ==>> replace() & replaceAll methods will return the same results
+        only difference is replaceAll() includes string regular expressions
+
+-replaceFirst(String regex, String replacement):
+    ->replaces the first occurrences of a regular expression pattern with a specified replacement String
+        and returns new replacement string
+    ==>>only replaces the first matching not all of them unlike the other two above
+
+EXAMPLE:
+String str = "I Love Java, Java is cool. ";
+String newStr1 = str.replace("Java", "Python");
+sout(newString1);
+=>Output: I love Python, Python is cool.
+//didn't modify anything in object since string object is immutable
+
+String str = "I Love Java, Java is cool. ";
+String newStr2 = str.replaceAll("Java", "Python");
+sout(newString2);
+=>Output: I love Python, Python is cool.
+//All Java in entire string will be replaced , still cannot modify string object
+
+String str = "I Love Java, Java is cool. ";
+String newStr3 = str.replaceFirst("Java", "Python");
+sout(newString3);
+=>Output: I love Python, Java is cool.
+//this method will only change the first Java not the ones that come after it
+------
+How can we make an object reference variable reference to a new object?
+assign variable back to new replacement
+-----------------------------------------------------------------------------------------------------------------------
+Trim() method
+- removes leading and trailing whitespace(space, tabs, line break) from a String object
+EXAMPLE:
+String str = " \t\n Hello World! ";
+sout("str: " + str + ":");
+=>output: str :
+                Hello World! :
+==>>sout("str: " + str.trim() + ":");
+=>Output: str: Hello World!
+----------------------------------------------------------------------------------------------------------------
+Contains () method:
+- used to check if specified string is included in the given string or not
+- return true / false
+- case sensitive (watches for upper lower case etc.)
+-> to ignore case sensitivity: before calling the contains () method, I can call sentence.ToLowerCase()
+    then call contains() method to check if sentence in lower case appears
+-----------------------------------------------------------------------------------------------------------------
+String represents the sequence of characters and it is not the only class that represents characters,
+there are two more BUT STRING IS ONLY IMMUTABLE ONE
+->StringBuilder & StringBuffer
+- both are classes that provide mutable representations of sequence of characters
+- they are commonly used especially inside any loop to perform multiple modifications
+
+EXAMPLES:
+StringBuilder myBuilder = new StringBuilder("Builder");
+StringBuffer myBuffer = new StringBuffer("Buffer");
+sout(myBuilder); => builder
+sout(myBuffer); => buffer
+
+Frequently used methods of StringBuilder & StringBuffer
+- append(): Concatenates or appends various types of data to the existing string representation
+=>concatenates (used instead od "+")
+- reverse(): reverses character of the string representation without creating a new string object
+=> since StringBuilder /-Buffer are mutable object itself can be modified
+when calling reverse() it modifies object
+- toString(): returns a string representation of the StringBuffer or StringBuilder
+
+EXAMPLE:
+StringBuilder ab = new StringBuilder(); //new keyword is needed
+sb.append = ("Hello");
+sb.append = (" ");
+sb.append = ("World");
+//=> if it was a string & you called concatenate method to make sure it is updated
+you needed to assign object back to variable because string object is immutable , a new string would be returned
+append() can modify existing string builder
+
+sout(sb);
+=> Hello World
+
+sb.reverse();
+sout(sb);
+=>reverses characters within object
+returns: !dlroW olleH
+
+String result = sb.toString();
+sout(result);
+returns: !dlroW olleH
+//returns string object of stringBuilder since it can be modified
+
+------------------------------------------------------------------------------------------------------------------------
+
+String vs StringBuffer vs StringBuilder
+
+                   String                        Buffer                  Builder
+
+Mutability        immutable                       mutable                 mutable
+Storage           String Pool(string literal)     Heap                    Heap
+                  Heap
+Synchronized      synchronized (immutable)        synchronized            not synchronized
+(thread safe*)    (thread safe)                   (thread safe)           (not thread safe)
+Speed             slowest                         in between both         fastest
+Creation          string literal /
+                  "new" keyword                   "new" keyword           "new" keyword
+
+*Thread safe: during multi thread environment, whenever there are multiple threads being executed
+within process, each thread will be executed one at the time
+------------------------------------------------------------------------------------------------------------------------
+Immutable vs Mutable Objects
+
+- Immutable: doesn't allow any modification to the object -> will give you new object
+- mutable: can modify object even after creating -> changes are made to the existing object ,
+                                                 -> no need to create a new object
+EXAMPLE:
+String str = "Hello";
+str.concat(" World");
+sout("str =" + str); => str = Hello
+//cannot make any change to object , creates new string object and  needs to be reassigned to variable
+str = str.concat(" World");
+sout("str = " + str); => str = Hello World
+
+StrinBuilder sb = new StringBUilder("Hello");
+sb.append(" World");
+sout("sb = " + sb); => sb = Hello World

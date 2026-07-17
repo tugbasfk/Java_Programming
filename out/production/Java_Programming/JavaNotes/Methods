@@ -102,3 +102,8 @@ public static  int addNumbers(int num1, int, num2 ){
             - if method has void return type, no value is returned
             - after return statement , no code will be executed
             - a method can have multiple return statements inside the conditional statement, but only one will eb executed
+Key Takeaways:
+- methods can have 0+ parameters
+- num & order of arguments must match num & order of parameters
+- arg & parameter datatype compatibility rules are same with assigning values to variables
+- "return" can provide result from method back to code that called it
